@@ -98,7 +98,7 @@
                     <div>
                         <label class="block mb-2">ID Player</label>
                         <input 
-                            type="text" 
+                            type="number" 
                             id="playerID" 
                             class="w-full p-3 bg-gray-700 rounded"
                             placeholder="Masukkan ID Player"
@@ -120,6 +120,36 @@
                         <label class="block mb-2">Metode Pembayaran</label>
                         <div id="paymentMethods" class="grid grid-cols-3 gap-2">
                             <!-- Metode pembayaran akan diisi dinamis -->
+                        </div>
+                    </div>
+
+                    <div>
+                        <label class="block mb-2">Metode Pembayaran</label>
+                        <div id="paymentMethods" class="grid grid-cols-3 gap-2">
+                            <button type="button" class="payment-method bg-gray-700 p-3 rounded hover:bg-gray-600 transition" data-method="dana">
+                                <img src="images/dana.png" alt="DANA" class="mx-auto h-8 w-auto">
+                                <span class="block text-center mt-2 text-sm">DANA</span>
+                            </button>
+                            <button type="button" class="payment-method bg-gray-700 p-3 rounded hover:bg-gray-600 transition" data-method="gopay">
+                                <img src="images/gopay.webp" alt="GoPay" class="mx-auto h-8 w-auto">
+                                <span class="block text-center mt-2 text-sm">GoPay</span>
+                            </button>
+                            <button type="button" class="payment-method bg-gray-700 p-3 rounded hover:bg-gray-600 transition" data-method="ovo">
+                                <img src="images/ovo.webp" alt="OVO" class="mx-auto h-8 w-auto">
+                                <span class="block text-center mt-2 text-sm">OVO</span>
+                            </button>
+                            <button type="button" class="payment-method bg-gray-700 p-3 rounded hover:bg-gray-600 transition" data-method="TELKOMSEL">
+                                <img src="images/telkomsel.webp" alt="TELKOMSEL" class="mx-auto h-8 w-auto">
+                                <span class="block text-center mt-2 text-sm">Telkomsel</span>
+                            </button>
+                            <button type="button" class="payment-method bg-gray-700 p-3 rounded hover:bg-gray-600 transition" data-method="Shopeepay">
+                                <img src="images/shopepay.webp" alt="Shopeepay" class="mx-auto h-8 w-auto">
+                                <span class="block text-center mt-2 text-sm">Shopee Pay</span>
+                            </button>
+                            <button type="button" class="payment-method bg-gray-700 p-3 rounded hover:bg-gray-600 transition" data-method="ALFAMART">
+                                <img src="images/DOKU_OTC_ID_CHNL_LOGO.webp" alt="ALFAMART" class="mx-auto h-8 w-auto">
+                                <span class="block text-center mt-2 text-sm">ALFAMART</span>
+                            </button>
                         </div>
                     </div>
 

@@ -34,6 +34,20 @@ document.addEventListener('DOMContentLoaded', () => {
     const selectedGameInput = document.getElementById('selectedGame');
     const nominalTopupInput = document.getElementById('nominalTopup');
     const topupForm = document.getElementById('topupForm');
+    const paymentMethodButtons = document.querySelectorAll('.payment-method');
+    let selectedPaymentMethod = null;
+
+    // Metode Pembayaran
+    paymentMethodButtons.forEach(button => {
+        button.addEventListener('click', () => {
+            // Hapus seleksi sebelumnya
+            paymentMethodButtons.forEach(btn => btn.classList.remove('border-2', 'border-blue-500'));
+            
+            // Tandai metode pembayaran yang dipilih
+            button.classList.add('border-2', 'border-blue-500');
+            selectedPaymentMethod = button.getAttribute('data-method');
+        });
+    });
 
     // Render game list
     function renderGameList() {
@@ -132,11 +146,38 @@ document.addEventListener('DOMContentLoaded', () => {
         const nominal = nominalTopupInput.value;
         
         // Validasi
-        if (!game || !playerID || !nominal) {
+        if (!game) {
             Swal.fire({
-                icon: 'error',
-                title: 'Oops...',
-                text: 'Harap lengkapi semua informasi!'
+                icon: 'warning',
+                title: 'Peringatan',
+                text: 'Silakan pilih game terlebih dahulu'
+            });
+            return;
+        }
+
+        if (!playerID) {
+            Swal.fire({
+                icon: 'warning',
+                title: 'Peringatan',
+                text: 'Silakan masukkan ID Player'
+            });
+            return;
+        }
+
+        if (!nominal) {
+            Swal.fire({
+                icon: 'warning',
+                title: 'Peringatan',
+                text: 'Silakan pilih nominal top up'
+            });
+            return;
+        }
+
+        if (!selectedPaymentMethod) {
+            Swal.fire({
+                icon: 'warning',
+                title: 'Peringatan',
+                text: 'Silakan pilih metode pembayaran'
             });
             return;
         }
@@ -147,7 +188,8 @@ document.addEventListener('DOMContentLoaded', () => {
             html: `
                 Game: ${game}<br>
                 ID Player: ${playerID}<br>
-                Nominal: ${nominal}
+                Nominal: ${nominal}<br>
+                Metode Pembayaran: ${selectedPaymentMethod}
             `,
             icon: 'question',
             showCancelButton: true,
@@ -164,6 +206,10 @@ document.addEventListener('DOMContentLoaded', () => {
 
                 // Reset form
                 topupForm.reset();
+                selectedPaymentMethod = null;
+                paymentMethodButtons.forEach(btn => btn.classList.remove('border-2', 'border-blue-500'));
+                gameList.classList.remove('hidden');
+                nominalList.classList.add('hidden');
             }
         });
     });
