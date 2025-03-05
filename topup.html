@@ -7,23 +7,69 @@
     <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <style>
+        /* Custom scrollbar */
+        ::-webkit-scrollbar {
+            width: 8px;
+        }
+        ::-webkit-scrollbar-track {
+            background: #2d3748;
+        }
+        ::-webkit-scrollbar-thumb {
+            background: #4a5568;
+            border-radius: 4px;
+        }
+        ::-webkit-scrollbar-thumb:hover {
+            background: #718096;
+        }
+    </style>
 </head>
-<body class="bg-gray-900 text-white">
-    <nav class="bg-gray-800 p-4">
-        <div class="container mx-auto flex justify-between items-center">
-            <div class="flex items-center">
-                <i class="fas fa-gamepad text-3xl text-blue-500 mr-3"></i>
-                <h1 class="text-2xl font-bold">GameBoost</h1>
+<body class="bg-gray-900 text-white min-h-screen flex flex-col">
+    <nav class="bg-gray-800 shadow-lg">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex items-center justify-between h-16">
+                <div class="flex items-center">
+                    <div class="flex-shrink-0 flex items-center">
+                        <span class="text-xl font-bold text-blue-500">GameBoost</span>
+                    </div>
+                    <div class="ml-10 flex items-baseline space-x-4">
+                        <a href="index.html" class="text-gray-300 hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium transition duration-300">Beranda</a>
+                        <a href="topup.html" class="bg-gray-900 text-white px-3 py-2 rounded-md text-sm font-medium">Top Up</a>
+                        <a href="page_error.html" class="text-gray-300 hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium transition duration-300">Riwayat</a>
+                        <a href="page_error.html" class="text-gray-300 hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium transition duration-300">Profil</a>
+                    </div>
+                </div>
+                <div class="hidden md:block">
+                    <div class="ml-4 flex items-center md:ml-6">
+                        <button id="loginBtn" class="bg-blue-600 text-white px-4 py-2 rounded-md text-sm font-medium hover:bg-blue-700 transition duration-300">
+                            <i class="fas fa-user mr-2"></i>Masuk
+                        </button>
+                    </div>
+                </div>
+                <div class="-mr-2 flex md:hidden">
+                    <button type="button" class="bg-gray-900 inline-flex items-center justify-center p-2 rounded-md text-gray-400 hover:text-white hover:bg-gray-800 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-gray-800 focus:ring-white">
+                        <span class="sr-only">Open main menu</span>
+                        <i class="fas fa-bars"></i>
+                    </button>
+                </div>
             </div>
-            <div class="space-x-4">
-                <a href="index.html" class="text-white hover:text-blue-500">Beranda</a>
-                <a href="riwayat.html" class="text-white hover:text-blue-500">Riwayat</a>
-                <a href="profil.html" class="text-white hover:text-blue-500">Profil</a>
+        </div>
+
+        <!-- Mobile menu, show/hide based on menu state. -->
+        <div class="md:hidden hidden" id="mobile-menu">
+            <div class="px-2 pt-2 pb-3 space-y-1 sm:px-3">
+                <a href="index.html" class="text-gray-300 hover:bg-gray-700 hover:text-white block px-3 py-2 rounded-md text-base font-medium">Beranda</a>
+                <a href="topup.html" class="bg-gray-900 text-white block px-3 py-2 rounded-md text-base font-medium">Top Up</a>
+                <a href="page_error.html" class="text-gray-300 hover:bg-gray-700 hover:text-white block px-3 py-2 rounded-md text-base font-medium">Riwayat</a>
+                <a href="page_error.html" class="text-gray-300 hover:bg-gray-700 hover:text-white block px-3 py-2 rounded-md text-base font-medium">Profil</a>
+                <button id="loginBtnMobile" class="bg-blue-600 text-white w-full px-4 py-2 rounded-md text-sm font-medium hover:bg-blue-700 transition duration-300">
+                    <i class="fas fa-user mr-2"></i>Masuk
+                </button>
             </div>
         </div>
     </nav>
 
-    <main class="container mx-auto mt-8 px-4">
+    <main class="container mx-auto mt-8 px-4 flex-grow">
         <div class="grid md:grid-cols-2 gap-8">
             <div class="bg-gray-800 rounded-lg p-6">
                 <h2 class="text-2xl font-semibold mb-6 text-center">Pilih Game</h2>
@@ -88,10 +134,91 @@
         </div>
     </main>
 
-    <footer class="bg-gray-800 p-4 mt-8 text-center">
-        <p>&copy; 2024 GameBoost. Semua hak dilindungi.</p>
+    <footer class="bg-gray-800 py-6">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex flex-col md:flex-row justify-between items-center">
+                <div class="flex items-center mb-4 md:mb-0">
+                    <span class="text-xl font-bold text-blue-500">GameBoost</span>
+                </div>
+                <div class="flex justify-center items-center space-x-4 text-gray-400 mb-4 md:mb-0">
+                    <a href="#" class="hover:text-white transition duration-300">
+                        <i class="fab fa-facebook fa-lg"></i>
+                    </a>
+                    <a href="#" class="hover:text-white transition duration-300">
+                        <i class="fab fa-twitter fa-lg"></i>
+                    </a>
+                    <a href="#" class="hover:text-white transition duration-300">
+                        <i class="fab fa-instagram fa-lg"></i>
+                    </a>
+                    <a href="#" class="hover:text-white transition duration-300">
+                        <i class="fab fa-linkedin fa-lg"></i>
+                    </a>
+                </div>
+                <div class="text-sm text-gray-400 text-center md:text-right">
+                    <p class="mb-2">© 2024 GameBoost. All Rights Reserved.</p>
+                    <div class="flex justify-center md:justify-end space-x-4">
+                        <a href="#" class="hover:text-white transition duration-300">Syarat & Ketentuan</a>
+                        <a href="#" class="hover:text-white transition duration-300">Kebijakan Privasi</a>
+                        <a href="#" class="hover:text-white transition duration-300">Kontak</a>
+                    </div>
+                </div>
+            </div>
+        </div>
     </footer>
 
+    <script src="js/utils.js"></script>
+    <script src="js/auth.js"></script>
     <script src="js/topup.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            // Tambahkan event listener untuk login
+            document.getElementById('loginBtn').addEventListener('click', showLoginModal);
+            
+            // Mobile login button
+            if (document.getElementById('loginBtnMobile')) {
+                document.getElementById('loginBtnMobile').addEventListener('click', showLoginModal);
+            }
+
+            // Mobile menu toggle
+            const mobileMenuButton = document.querySelector('nav button[type="button"]');
+            const mobileMenu = document.getElementById('mobile-menu');
+            
+            mobileMenuButton.addEventListener('click', () => {
+                mobileMenu.classList.toggle('hidden');
+            });
+        });
+
+        function showLoginModal() {
+            Swal.fire({
+                title: 'Login',
+                html: `
+                    <input type="email" id="email" class="swal2-input" placeholder="Email">
+                    <input type="password" id="password" class="swal2-input" placeholder="Password">
+                `,
+                confirmButtonText: 'Login',
+                cancelButtonText: 'Batal',
+                showCancelButton: true,
+                preConfirm: () => {
+                    const email = document.getElementById('email').value;
+                    const password = document.getElementById('password').value;
+                    
+                    if (!email || !password) {
+                        Swal.showValidationMessage('Harap isi email dan password');
+                    }
+                    
+                    return { email, password };
+                }
+            }).then((result) => {
+                if (result.isConfirmed) {
+                    // Logika autentikasi akan ditambahkan di sini
+                    Swal.fire({
+                        icon: 'success',
+                        title: 'Login Berhasil!',
+                        text: 'Selamat datang di GameBoost'
+                    });
+                }
+            });
+        }
+    </script>
 </body>
 </html>
