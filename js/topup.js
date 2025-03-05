@@ -2,7 +2,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const games = [
         { 
             name: 'Mobile Legends', 
-            logo: 'images/MOBILE.jpg',
+            logo: '/bootcamp-DIBIMBING/images/MOBILE.jpg',  // Tambahkan nama repository di depan path
             nominals: [
                 { value: 70, price: 20000, discount: 5 },
                 { value: 140, price: 40000, discount: 10 },
