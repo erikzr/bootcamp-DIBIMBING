@@ -2,7 +2,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const games = [
         { 
             name: 'Mobile Legends', 
-            logo: 'fas fa-gamepad',
+            logo: 'images/MOBILE.jpg',
             nominals: [
                 { value: 70, price: 20000, discount: 5 },
                 { value: 140, price: 40000, discount: 10 },
@@ -11,7 +11,7 @@ document.addEventListener('DOMContentLoaded', () => {
         },
         { 
             name: 'Free Fire', 
-            logo: 'fas fa-fire',
+            logo: 'images/FREEFIRE.jpg',
             nominals: [
                 { value: 50, price: 15000, discount: 3 },
                 { value: 100, price: 30000, discount: 7 },
@@ -20,7 +20,7 @@ document.addEventListener('DOMContentLoaded', () => {
         },
         { 
             name: 'PUBG Mobile', 
-            logo: 'fas fa-car',
+            logo: 'images/PUBG.jpg',
             nominals: [
                 { value: 60, price: 20000, discount: 5 },
                 { value: 120, price: 40000, discount: 10 },
@@ -66,8 +66,9 @@ document.addEventListener('DOMContentLoaded', () => {
                 'border-transparent',
                 'hover:border-green-500'
             );
+            // Modifikasi untuk menampilkan gambar
             gameEl.innerHTML = `
-                <i class="${game.logo} text-4xl text-blue-500 mb-2"></i>
+                <img src="${game.logo}" alt="${game.name}" class="w-16 h-16 mx-auto mb-2 object-cover">
                 <p class="text-sm">${game.name}</p>
             `;
             gameEl.addEventListener('click', () => showNominals(game));
