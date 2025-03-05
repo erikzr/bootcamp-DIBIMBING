@@ -29,8 +29,7 @@ cd gameboost
 3. Jalankan dengan membuka file `index.html` di browser
 
 ## 📸 Screenshot
-[![Uploading screencapture-erikzr-github-io-bootcamp-DIBIMBING-topup-html-2025-03-05-12_22_42.png…]()
-]
+assets\screenshot\screencapture-erikzr-github-io-bootcamp-DIBIMBING-page-error-html-2025-03-05-12_20_10.png
 
 ## 🤝 Kontribusi
 Kontribusi sangat diterima! Silakan buat pull request atau laporkan issues.
