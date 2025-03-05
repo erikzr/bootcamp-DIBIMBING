@@ -120,17 +120,17 @@
             const games = [
                 { 
                     name: 'Mobile Legends', 
-                    logo: 'fas fa-gamepad',
+                    logo: 'images/MOBILE.jpg',
                     description: 'Top Up Diamond Tercepat'
                 },
                 { 
                     name: 'Free Fire', 
-                    logo: 'fas fa-fire',
+                    logo: 'images/FREEFIRE.jpg',
                     description: 'Top Up Diamond Termurah'
                 },
                 { 
                     name: 'PUBG Mobile', 
-                    logo: 'fas fa-car',
+                    logo: 'images/PUBG.jpg',
                     description: 'Top Up UC Terlengkap'
                 }
             ];
@@ -139,7 +139,7 @@
                 const gameCard = document.createElement('div');
                 gameCard.className = 'bg-gray-800 rounded-lg p-6 hover:bg-gray-700 transition duration-300 shadow-lg';
                 gameCard.innerHTML = `
-                    <i class="${game.logo} text-6xl text-blue-500 mb-4 block text-center"></i>
+                    <img src="${game.logo}" alt="${game.name} Logo" class="w-24 h-24 mx-auto mb-4 object-cover">
                     <h2 class="text-2xl font-semibold text-center">${game.name}</h2>
                     <p class="text-center mt-2 text-gray-400">${game.description}</p>
                     <a href="topup.html" class="block w-full mt-4 bg-green-600 text-white p-3 rounded hover:bg-green-700 text-center transition duration-300">
